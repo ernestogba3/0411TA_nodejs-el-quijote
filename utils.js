@@ -23,6 +23,44 @@ top10.forEach(([palabra, cantidad], index) => {
 })
 }
 
+function limpiarMinuscula(texto){
+  const minuscula = texto.toLowerCase();
+  console.log("----------------------------------------");
+  return minuscula;
+}
+
+function limpiarPuntuacion(texto){
+  const limpieza = texto.replace(/[-.,;:!?¿¡()"']/g, '');
+  return limpieza;
+}
+
+function contadorPalabras(texto){
+  const textoLimpio = texto
+  .toLowerCase()
+  .replace(/[.,;:!?¿¡()"']/g, '');
+
+const palabras = textoLimpio.split(/\s+/);
+
+// 🔹 Contadores
+let contadorQuijote = 0;
+let contadorSancho = 0;
+
+let totalLetras = 0;
+let totalPalabras = 0;
+
+for (const palabra of palabras) {
+  if (!palabra) continue;
+
+  // contar palabras específicas
+  if (palabra === 'quijote') contadorQuijote++;
+  if (palabra === 'sancho') contadorSancho++;
+}
+console.log('quijote:', contadorQuijote,"veces aparece");
+console.log('sancho:', contadorSancho,"veces aparece");
+}
+
 module.exports ={
-    contarCaracteresSinEspacios,topPalabras
+    contarCaracteresSinEspacios,
+    topPalabras,limpiarMinuscula,
+    limpiarPuntuacion,contadorPalabras
 }
